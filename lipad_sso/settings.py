@@ -82,6 +82,14 @@ WSGI_APPLICATION = 'lipad_sso.wsgi.application'
 #    }
 #}
 
+# Load more settings from a file called local_settings.py if it exists
+try:
+    from local_settings import *  # noqa
+except ImportError:
+    print "importing local_settings failed"
+    pass
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -101,10 +109,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SESSION_COOKIE_AGE = 604800
 
-# Load more settings from a file called local_settings.py if it exists
-try:
-    from local_settings import *  # noqa
-except ImportError:
-    print "importing local_settings failed"
-    pass
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
