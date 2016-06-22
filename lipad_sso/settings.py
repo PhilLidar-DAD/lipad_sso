@@ -67,6 +67,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = ('django_auth_ldap.backend.LDAPBackend',
+																'django.contrib.auth.backends.ModelBackend',)
+
+
 ROOT_URLCONF = 'lipad_sso.urls'
 
 WSGI_APPLICATION = 'lipad_sso.wsgi.application'
@@ -81,14 +85,6 @@ WSGI_APPLICATION = 'lipad_sso.wsgi.application'
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
-
-# Load more settings from a file called local_settings.py if it exists
-try:
-    from local_settings import *  # noqa
-except ImportError:
-    print "importing local_settings failed"
-    pass
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -114,3 +110,10 @@ SESSION_COOKIE_AGE = 604800
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
+
+# Load more settings from a file called local_settings.py if it exists
+try:
+    from local_settings import *  # noqa
+except ImportError:
+    print "importing local_settings failed"
+    pass
