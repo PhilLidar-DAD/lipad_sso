@@ -14,6 +14,7 @@ from mama_cas.exceptions import InvalidTicketSpec
 from mama_cas.exceptions import ValidationError
 from mama_cas.utils import get_config
 
+from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -117,6 +118,7 @@ def get_attributes(user, service):
 def logout_user(request):
     """End a single sign-on session for the current user."""
     logger.debug("Logout request received for %s" % request.user)
+    pprint("Logout request received for %s" % request.user)
     if request.user.is_authenticated():
         ServiceTicket.objects.consume_tickets(request.user)
         ProxyTicket.objects.consume_tickets(request.user)
