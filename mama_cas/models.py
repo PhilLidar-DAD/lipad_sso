@@ -6,6 +6,8 @@ import os
 import re
 import time
 
+from pprint import pprint
+
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
@@ -267,7 +269,9 @@ class ServiceTicket(Ticket):
         request sign-out.
         """
         if not get_config(self.service, 'LOGOUT_ALLOW'):
-            return
+			pprint("LOGOUT_ALLOW setting not found")
+			return
+			
         request = SingleSignOutRequest(context={'ticket': self})
         url = get_config(self.service, 'LOGOUT_URL') or self.service
         try:
