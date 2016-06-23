@@ -111,6 +111,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
 
+LOGOUT_ALLOW = True
+
 # Load more settings from a file called local_settings.py if it exists
 try:
     from local_settings import *  # noqa
