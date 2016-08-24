@@ -12,6 +12,7 @@ from .compat import urlencode
 from .compat import urlparse
 from .compat import urlunparse
 
+import pprint from pprint
 
 logger = logging.getLogger(__name__)
 
@@ -87,11 +88,12 @@ def redirect(to, *args, **kwargs):
     redirection URL.
     """
     params = kwargs.pop('params', {})
-
+    
     try:
         to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
     except urlresolvers.NoReverseMatch:
         if '/' not in to and '.' not in to:
+			pprint("redirection url:"+to)
             to = urlresolvers.reverse('cas_login')
         elif not is_valid_service_url(to):
             raise PermissionDenied()
