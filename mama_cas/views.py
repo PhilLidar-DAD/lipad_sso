@@ -32,7 +32,7 @@ from mama_cas.utils import redirect
 from mama_cas.utils import to_bool
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("django")
 
 
 class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
