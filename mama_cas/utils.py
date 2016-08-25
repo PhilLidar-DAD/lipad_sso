@@ -12,8 +12,6 @@ from .compat import urlencode
 from .compat import urlparse
 from .compat import urlunparse
 
-import pprint from pprint
-
 logger = logging.getLogger(__name__)
 
 
