@@ -90,8 +90,8 @@ def redirect(to, *args, **kwargs):
     try:
         to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
     except urlresolvers.NoReverseMatch:
+		logger.error("redirection url:"+to)
         if '/' not in to and '.' not in to:
-			logger.error("redirection url:"+to)
 			to = urlresolvers.reverse('cas_login')
         elif not is_valid_service_url(to):
             raise PermissionDenied()
