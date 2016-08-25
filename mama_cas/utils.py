@@ -69,6 +69,7 @@ def is_valid_service_url(url):
     ``True``, otherwise return ``False``. If no valid service URLs are
     configured, return ``True``.
     """
+    logger.error("service url:"+url)
     valid_services = getattr(settings, 'MAMA_CAS_VALID_SERVICES', ())
     if not valid_services:
         return True
