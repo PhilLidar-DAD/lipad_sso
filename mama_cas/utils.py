@@ -91,7 +91,6 @@ def redirect(to, *args, **kwargs):
     try:
         to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
     except urlresolvers.NoReverseMatch:
-		
         if '/' not in to and '.' not in to:
 			to = urlresolvers.reverse('cas_login')
         elif not is_valid_service_url(to):
