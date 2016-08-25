@@ -17,11 +17,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATES = [
 	{
-		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [
-			BASE_DIR+'mama_cas/templates'
-		],
-		'APP_DIRS': True,
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [
+    	BASE_DIR+'mama_cas/templates'
+    ],
+    'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
@@ -68,7 +68,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = ('django_auth_ldap.backend.LDAPBackend',
-																'django.contrib.auth.backends.ModelBackend',)
+                                'django.contrib.auth.backends.ModelBackend',)
 
 
 ROOT_URLCONF = 'lipad_sso.urls'
