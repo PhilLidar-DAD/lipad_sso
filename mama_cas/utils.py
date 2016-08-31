@@ -96,7 +96,7 @@ def redirect(to, *args, **kwargs):
             to = urlresolvers.reverse('cas_login')
             logger.info("redirection url 2:"+to)
         elif not is_valid_service_url(to):
-            logger.info("redirection url 3:"+to)
+            logger.error("redirection url 3:"+to)
             raise PermissionDenied()
 
     if params:
