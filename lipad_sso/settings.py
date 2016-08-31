@@ -16,10 +16,10 @@ logging.basicConfig()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATES = [
-	{
+    {
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
     'DIRS': [
-    	BASE_DIR+'mama_cas/templates'
+        BASE_DIR+'mama_cas/templates'
     ],
     'APP_DIRS': True,
         'OPTIONS': {

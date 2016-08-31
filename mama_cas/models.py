@@ -78,30 +78,30 @@ class TicketManager(models.Manager):
         will only succeed if the service URL scheme is HTTPS.
         """
         if not ticket:
-			logger.error("No ticket string provided")
+            logger.error("No ticket string provided")
             raise InvalidRequest("No ticket string provided")
 
         if not self.model.TICKET_RE.match(ticket):
-			logger.error("Ticket string %s is invalid" % ticket)
+            logger.error("Ticket string %s is invalid" % ticket)
             raise InvalidTicket("Ticket string %s is invalid" % ticket)
 
         try:
             t = self.get(ticket=ticket)
         except self.model.DoesNotExist:
-			logger.error("Ticket %s does not exist" % ticket)
+            logger.error("Ticket %s does not exist" % ticket)
             raise InvalidTicket("Ticket %s does not exist" % ticket)
 
         if t.is_consumed():
-			logger.error("%s %s has already been used" %
+            logger.error("%s %s has already been used" %
                                 (t.name, ticket))
             raise InvalidTicket("%s %s has already been used" %
                                 (t.name, ticket))
         if t.is_expired():
-			logger.error("%s %s has expired" % (t.name, ticket))
+            logger.error("%s %s has expired" % (t.name, ticket))
             raise InvalidTicket("%s %s has expired" % (t.name, ticket))
 
         if not service:
-			logger.error("No service identifier provided")
+            logger.error("No service identifier provided")
             raise InvalidRequest("No service identifier provided")
 
         if require_https and not is_scheme_https(service):
@@ -113,7 +113,7 @@ class TicketManager(models.Manager):
 
         try:
             if not match_service(t.service, service):
-				logger.error("%s %s for service %s is invalid for "
+                logger.error("%s %s for service %s is invalid for "
                         "service %s" % (t.name, ticket, t.service, service))
                 raise InvalidService("%s %s for service %s is invalid for "
                         "service %s" % (t.name, ticket, t.service, service))
@@ -122,7 +122,7 @@ class TicketManager(models.Manager):
 
         try:
             if renew and not t.is_primary():
-				logger.error("%s %s was not issued via primary "
+                logger.error("%s %s was not issued via primary "
                                     "credentials" % (t.name, ticket))
                 raise InvalidTicket("%s %s was not issued via primary "
                                     "credentials" % (t.name, ticket))
