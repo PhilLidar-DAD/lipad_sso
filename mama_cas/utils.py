@@ -69,7 +69,6 @@ def is_valid_service_url(url):
     ``True``, otherwise return ``False``. If no valid service URLs are
     configured, return ``True``.
     """
-    logger.error("service url:"+url)
     valid_services = getattr(settings, 'MAMA_CAS_VALID_SERVICES', ())
     if not valid_services:
         return True
@@ -87,7 +86,7 @@ def redirect(to, *args, **kwargs):
     redirection URL.
     """
     params = kwargs.pop('params', {})
-    logger.error("redirection url:"+to)
+    logger.info("redirection url 1:"+to)
     
     try:
         to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
@@ -95,7 +94,9 @@ def redirect(to, *args, **kwargs):
     except urlresolvers.NoReverseMatch:
         if '/' not in to and '.' not in to:
 			to = urlresolvers.reverse('cas_login')
+			logger.info("redirection url 2:"+to)
         elif not is_valid_service_url(to):
+			logger.info("redirection url 3:"+to)
             raise PermissionDenied()
 
     if params:
