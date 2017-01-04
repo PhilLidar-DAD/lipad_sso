@@ -71,7 +71,7 @@ class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
             if request.user.is_authenticated():
 				logger.error("user is authenticated")
 				st = ServiceTicket.objects.create_ticket(service=service, user=request.user)
-                if self.warn_user():
+				if self.warn_user():
                     return redirect('cas_warn', params={'service': service,
                                                         'ticket': st.ticket})
                 return redirect(service, params={'ticket': st.ticket})
