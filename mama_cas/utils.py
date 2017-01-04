@@ -90,7 +90,7 @@ def redirect(to, *args, **kwargs):
     
     try:
 		logger.error("redirection url 1:"+to)
-        to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
+		to = urlresolvers.reverse(to, args=args, kwargs=kwargs)
         
     except urlresolvers.NoReverseMatch:
         if '/' not in to and '.' not in to:
