@@ -12,6 +12,8 @@ from mama_cas.models import ProxyGrantingTicket
 from mama_cas.exceptions import InvalidTicketSpec
 from mama_cas.exceptions import ValidationError
 
+from pprint import pprint
+
 
 logger = logging.getLogger(__name__)
 
@@ -104,6 +106,7 @@ def get_attributes(user, service):
         callback = import_string(path)
         attributes.update(callback(user, service))
 
+	pprint(attributes)
     return attributes
 
 
