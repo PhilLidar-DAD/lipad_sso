@@ -106,7 +106,7 @@ def get_attributes(user, service):
         callback = import_string(path)
         attributes.update(callback(user, service))
 
-	pprint(attributes)
+	logger.error(str(attributes))
     return attributes
 
 
