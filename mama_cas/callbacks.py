@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 def user_name_attributes(user, service):
     """Return all available user name related fields and methods."""
     attributes = {}
@@ -17,5 +21,5 @@ def user_model_attributes(user, service):
     for field in user._meta.fields:
         if field.name not in ignore_fields:
             attributes[field.name] = getattr(user, field.name)
-
+	logger.error("attributes:"+str(attributes))
     return attributes
