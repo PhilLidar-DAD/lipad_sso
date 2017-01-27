@@ -18,3 +18,6 @@ def user_model_attributes(user, service):
         if field.name not in ignore_fields:
             attributes[field.name] = getattr(user, field.name)
     return attributes
+
+def group_membership(user, service):
+	return user.ldap_user.group_names
