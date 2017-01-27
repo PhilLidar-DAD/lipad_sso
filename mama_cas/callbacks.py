@@ -1,4 +1,5 @@
 import logging
+from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -25,4 +26,5 @@ def user_model_attributes(user, service):
     return attributes
 
 def group_membership(user, service):
+	pprint("groups:"+user.ldap_user.group_names)
 	return user.ldap_user.group_names
