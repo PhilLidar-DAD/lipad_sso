@@ -21,11 +21,11 @@ def user_model_attributes(user, service):
     for field in user._meta.fields:
         if field.name not in ignore_fields:
             attributes[field.name] = getattr(user, field.name)
-	logger.error("attributes:"+str(attributes))
+	logger.debug("attributes:"+str(attributes))
     return attributes
 
 def group_membership(user, service):
 	#logger.error("groups:"+user.ldap_user.group_names)
 	l = user.groups.values_list('name', flat = True)
-	logger.error("groups:"+str(l))
+	logger.debug("groups:"+str(l))
 	return {'groups': l }
