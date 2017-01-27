@@ -12,6 +12,8 @@ from mama_cas.models import ProxyGrantingTicket
 from mama_cas.exceptions import InvalidTicketSpec
 from mama_cas.exceptions import ValidationError
 
+from pprint import pprint
+
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +53,7 @@ def validate_proxy_ticket(service, ticket, pgturl):
     of proxies through which authentication proceeded, or a
     ``ValidationError`` if ticket validation failed.
     """
-    logger.debug("Proxy validation request received for %s" % ticket)
+    logger.error("Proxy validation request received for %s" % ticket)
     try:
         pt = ProxyTicket.objects.validate_ticket(ticket, service)
     except ValidationError as e:

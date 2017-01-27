@@ -16,12 +16,12 @@ logging.basicConfig()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATES = [
-	{
-		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [
-			BASE_DIR+'mama_cas/templates'
-		],
-		'APP_DIRS': True,
+    {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [
+        BASE_DIR+'mama_cas/templates'
+    ],
+    'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
@@ -68,7 +68,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = ('django_auth_ldap.backend.LDAPBackend',
-																'django.contrib.auth.backends.ModelBackend',)
+                                'django.contrib.auth.backends.ModelBackend',)
 
 
 ROOT_URLCONF = 'lipad_sso.urls'
@@ -112,6 +112,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
 
 LOGOUT_ALLOW = True
+
+MAMA_CAS_ATTRIBUTE_CALLBACKS = ['mama_cas.callbacks.user_name_attributes','mama_cas.callbacks.user_model_attributes']
 
 # Load more settings from a file called local_settings.py if it exists
 try:
