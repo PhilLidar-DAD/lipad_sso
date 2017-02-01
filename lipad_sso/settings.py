@@ -113,7 +113,7 @@ MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
 
 LOGOUT_ALLOW = True
 
-MAMA_CAS_ATTRIBUTE_CALLBACKS = ['mama_cas.callbacks.user_name_attributes','mama_cas.callbacks.user_model_attributes']
+MAMA_CAS_ATTRIBUTE_CALLBACKS = ['mama_cas.callbacks.user_name_attributes','mama_cas.callbacks.user_model_attributes', 'mama_cas.callbacks.group_membership']
 
 # Load more settings from a file called local_settings.py if it exists
 try:
