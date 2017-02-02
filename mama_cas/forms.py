@@ -39,6 +39,8 @@ class LoginForm(forms.Form):
         if username and password:
             try:
                 self.user = authenticate(username=username, password=password)
+                if user.ldap_user:
+					logger.error("this user has a ldap_user object")
             except Exception:
                 logger.exception("Error authenticating %s" % username)
                 error_msg = _('Internal error while authenticating user')
