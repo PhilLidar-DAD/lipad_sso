@@ -3,6 +3,7 @@ import logging
 from django import forms
 from django.conf import settings
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import Group
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -39,12 +40,11 @@ class LoginForm(forms.Form):
         if username and password:
             try:
                 self.user = authenticate(username=username, password=password)
-                if self.user.ldap_user:
-					logger.error("this user has a ldap_user object")
             except Exception:
                 logger.exception("Error authenticating %s" % username)
                 error_msg = _('Internal error while authenticating user')
                 raise forms.ValidationError(error_msg)
+                
 
             if self.user is None:
                 logger.warning("Failed authentication for %s" % username)
