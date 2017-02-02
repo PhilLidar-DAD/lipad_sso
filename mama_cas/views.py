@@ -177,8 +177,8 @@ class LogoutView(NeverCacheMixin, View):
         service = request.GET.get('service')
         follow_url = getattr(settings, 'MAMA_CAS_FOLLOW_LOGOUT_URL', True)
         logout_user(request)
-        if service and follow_url:
-            return redirect(service)
+        #if service and follow_url:
+        #    return redirect(service)
         return redirect('cas_login')
 
 
