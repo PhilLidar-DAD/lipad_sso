@@ -24,8 +24,8 @@ def user_model_attributes(user, service):
     return attributes
 
 def group_membership(user, service):
-	#logger.error("groups:"+user.ldap_user.group_names)
-	#groups = list(user.ldap_user.group_names)
-	groups = user.groups.values_list('name', flat = True)
-	logger.error("groups:"+str(groups))
-	return {'groups': groups }
+    #logger.error("groups:"+user.ldap_user.group_names)
+    #groups = list(user.ldap_user.group_names)
+    groups = user.groups.values_list('name', flat = True)
+    logger.error("groups:"+str(groups))
+    return {'groups': groups }
