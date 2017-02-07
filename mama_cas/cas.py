@@ -118,6 +118,7 @@ def logout_user(request):
         ProxyGrantingTicket.objects.consume_tickets(request.user)
 
         if getattr(settings, 'MAMA_CAS_ENABLE_SINGLE_SIGN_OUT', False):
+			logger.error("Logging out of other services")
             ServiceTicket.objects.request_sign_out(request.user)
 
         logger.info("Single sign-on session ended for %s" % request.user)
