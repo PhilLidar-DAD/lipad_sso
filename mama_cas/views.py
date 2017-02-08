@@ -180,7 +180,7 @@ class LogoutView(NeverCacheMixin, View):
         #if service and follow_url:
         #    return redirect(service)
         #return redirect('cas_login')
-        return HTTPResponseRedirect('https://lipad.dream.upd.edu.ph/')
+        return HttpResponseRedirect('https://lipad.dream.upd.edu.ph/')
 
 
 class ValidateView(NeverCacheMixin, View):
