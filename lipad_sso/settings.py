@@ -112,6 +112,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
 
+AUTH_USER_MODEL = 'lipad_sso.Profile'
+
 LOGOUT_ALLOW = True
 
 MAMA_CAS_ATTRIBUTE_CALLBACKS = ['mama_cas.callbacks.user_name_attributes','mama_cas.callbacks.user_model_attributes', 'mama_cas.callbacks.group_membership']

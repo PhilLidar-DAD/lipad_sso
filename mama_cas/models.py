@@ -276,8 +276,7 @@ class ServiceTicket(Ticket):
         """
         request = SingleSignOutRequest(context={'ticket': self})
         try:
-            logger.error("logging out of "+self.service)
-            modified_service = self.service.replace("http","https")
+            modified_service = self.service.replace("http://","https://")
             resp = requests.post(modified_service, data={'logoutRequest': request.render_content()})
             resp.raise_for_status()
         except requests.exceptions.RequestException as e:
