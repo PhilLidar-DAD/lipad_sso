@@ -55,7 +55,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mama_cas'
+    'mama_cas',
+    'lipad_sso',
 )
 
 MIDDLEWARE_CLASSES = (

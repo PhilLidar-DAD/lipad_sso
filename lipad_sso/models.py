@@ -1,6 +1,7 @@
-from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils.translation import ugettext as _
 
-class Profile(AbstractBaseUser):
-	organization = models.CharField(_('Organization Name'), max_length=255, required=False, blank=True, null=True)
-	organization_type = models.CharField(_('Organization Type'), max_length=255, required=False, blank=True, null=True)
+class Profile(AbstractUser):
+	organization = models.CharField(_('Organization Name'), max_length=255, blank=True, null=True)
+	organization_type = models.CharField(_('Organization Type'), max_length=255, blank=True, null=True)
