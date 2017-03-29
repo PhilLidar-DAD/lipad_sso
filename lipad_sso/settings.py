@@ -55,7 +55,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mama_cas'
+    'mama_cas',
+    'lipad_sso',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,6 +112,8 @@ SESSION_COOKIE_AGE = 604800
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MAMA_CAS_ENABLE_SINGLE_SIGN_OUT = True
+
+AUTH_USER_MODEL = 'lipad_sso.Profile'
 
 LOGOUT_ALLOW = True
 

@@ -1,4 +1,5 @@
 import logging
+from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +22,7 @@ def user_model_attributes(user, service):
     for field in user._meta.fields:
         if field.name not in ignore_fields:
             attributes[field.name] = getattr(user, field.name)
+    pprint(attributes)
     return attributes
 
 def group_membership(user, service):
