@@ -3,7 +3,7 @@ import logging
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext as _
 from django.views.generic import FormView
 from django.views.generic import TemplateView
@@ -179,7 +179,8 @@ class LogoutView(NeverCacheMixin, View):
         logout_user(request)
         #if service and follow_url:
         #    return redirect(service)
-        return redirect('cas_login')
+        #return redirect('cas_login')
+        return HttpResponseRedirect('https://lipad.dream.upd.edu.ph/')
 
 
 class ValidateView(NeverCacheMixin, View):
