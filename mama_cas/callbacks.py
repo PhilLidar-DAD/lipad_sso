@@ -22,7 +22,8 @@ def user_model_attributes(user, service):
     for field in user._meta.fields:
         if field.name not in ignore_fields:
             attributes[field.name] = getattr(user, field.name)
-    pprint(attributes)
+    #pprint(attributes)
+    logger.error("attributes:"+str(attributes))
     return attributes
 
 def group_membership(user, service):
