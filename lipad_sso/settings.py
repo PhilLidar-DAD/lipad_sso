@@ -14,7 +14,7 @@ import logging
 logging.basicConfig()
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-STATICFILES_DIRS = (BASE_DIR, 'static', '/var/www/lipad_sso/static/')
+STATICFILES_DIRS = (BASE_DIR, 'static', '/var/www/lipad_sso/static/', '/var/www/lipad_sso/static/admin/')
 
 TEMPLATES = [
     {
